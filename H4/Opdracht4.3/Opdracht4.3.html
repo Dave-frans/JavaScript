@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ImageSlider</title>
+    <style>
+        #eyes {
+            height: 400px;
+            width: 700px;
+            border: 3px black solid;
+            transition: 2s;
+
+        }
+
+        #mouth{
+            height: 400px;
+            width: 700px;
+            border: 3px black solid;
+            transition: 2s;
+
+        }
+        #nose{
+            height: 400px;
+            width: 700px;
+            border: 3px black solid;
+            transition: 2s;
+
+        }
+
+    </style>
+</head>
+<body>
+<div id="eyes"></div>
+<script>
+    var plaatjes = [1,2,3];
+    var teller = 0;
+    var eyes = document.getElementById("eyes")
+    eyes.style.backgroundImage = "url('img/eyes1.jpg')";
+
+    eyes.addEventListener("click", function () {
+        eyes.style.backgroundImage = "url('img/eyes" + getEyes() +  ".jpg ')";
+    });
+
+    function getEyes() {
+        if (teller >= plaatjes.length) {
+            teller = 1;
+        } else {
+            teller++;
+        }
+        console.log(teller);
+        return teller;
+    }
+</script>
+
+
+    <div id="nose"></div>
+        <script>
+    var plaatjes = [1,2,3];
+    var teller = 0;
+    var nose = document.getElementById("nose")
+    nose.style.backgroundImage = "url('img/nose1.jpg')";
+
+    nose.addEventListener("click", function () {
+        nose.style.backgroundImage = "url('img/nose" + getNose() +  ".jpg ')";
+    });
+
+    function getNose() {
+        if (teller >= plaatjes.length) {
+            teller = 1;
+        }else {
+            teller++;
+        }
+        console.log(teller);
+        return teller;
+
+    }
+        </script>
+
+
+<div id="mouth"></div>
+    <script>
+var plaatjes = [1,2,3];
+var teller = 0;
+var mouth = document.getElementById("mouth")
+mouth.style.backgroundImage = "url('img/mouth1.jpg')";
+
+mouth.addEventListener("click", function () {
+    mouth.style.backgroundImage = "url('img/mouth" + getMouth() +  ".jpg ')";
+});
+
+function getMouth() {
+    if (teller >= plaatjes.length) {
+        teller = 1;
+    }else {
+        teller++;
+    }
+    console.log(teller);
+    return teller;
+
+}
+</script>
+
+
+</body>
+</html>
