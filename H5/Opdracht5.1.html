@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MonkeyChooser</title>
+
+    <style>
+        body {
+            font-family: 'Corpse', Serif;
+            text-align: center;
+        }
+
+        div.picture-holder {
+            height: 480px;
+            width: 300px;
+            float: left;
+            background-color: red;
+            border: solid 1px black;
+
+        }
+
+
+        div.favoriet {
+            width: 300px;
+            height: 150px;
+            background-image: none;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: blue;
+        }
+        div.picture-holder img {
+            width: 300px;
+            height: 380px;
+        }
+
+        #pics {
+            width: 1200px;
+            height: 1350px;
+            font-size: 0px;
+            margin: auto;
+            margin-left: 20%;
+        }
+    </style>
+</head>
+<body>
+<h1>MonkeyChooser</h1>
+<h3>Choose your favorite face!</h3>
+<div id="pics">
+</div>
+<script>
+    pics = document.getElementById("pics");
+    createPicsHolder();
+    createAapImages();
+
+    function createPicsHolder() {
+        for (var i = 0; i < 9; i++) {
+            pictureholders = document.createElement("div");
+            pictureholders.className = "picture-holder";
+            pictureholders.id = "picture-holder" + i;
+            pics.appendChild(pictureholders);
+        }
+    }
+
+    function createAapImages() {
+        pictureholders = document.getElementsByClassName("picture-holder");
+        console.log(pictureholders);
+        for (var i = 0; i < pictureholders.length; i++) {
+            favoriet = document.createElement("div");
+            favoriet.className = "favoriet";
+            favoriet.id = "favoriet_" + (i + 1);
+            aapPlaatje = document.createElement("img");
+            aapPlaatje.src = "img/aap" + (i + 1) + ".jpg";
+            aapPlaatje.id = (i + 1);
+            aapPlaatje.addEventListener("click", maakFavoriet);
+            pictureholders[i].appendChild(favoriet);
+            pictureholders[i].appendChild(aapPlaatje);
+        }
+    }
+
+    function maakFavoriet() {
+        var id = event.srcElement.id;
+        notsofavoriet = document.getElementsByClassName("favoriet");
+
+        for (var i = 0; i < notsofavoriet.length; i++) {
+            notsofavoriet[i].style.backgroundImage = "none";
+        }
+        favoriet = document.getElementById("favoriet_" + id);
+        favoriet.style.backgroundImage = "url('img/heart.png')";
+    }
+</script>
+
+</body>
+</html>
